@@ -33,6 +33,7 @@ parser.add_argument('--bn-size', type=int, default=8, help='bottleneck size: bn_
 parser.add_argument('--bottleneck', action='store_true', default=False, help='enable bottleneck in the dense blocks')
 parser.add_argument('--init-features', type=int, default=48, help='# initial features after the first conv layer')
 
+parser.add_argument('--pretrained-dir', type=str, default="/shared/pretrained_models/Net/n400", help='pretrained weights directory')
 parser.add_argument('--data-dir', type=str, default="/afs/crc.nd.edu/user/s/smo/invers_mt3d/", help='data directory')
 parser.add_argument('--kle-terms', type=int, default=679, help='num of KLE terms')
 parser.add_argument('--n-train', type=int, default=400, help="number of training data")
@@ -72,11 +73,13 @@ kwargs = {'num_workers': 4,'pin_memory': True} if th.cuda.is_available() else {}
 
 # load training data
 # shape of x and y: N x Nc x H x W, where N: Number of samples, Nc: Number of input/output channels, H x W: image size
-hdf5_dir = args.data_dir + "raw2/lsx4_lsy2_var0.5_smax8_D1r0.1/kle{}_lhs{}".format(args.kle_terms,args.n_train)
-x_train, y_train, n_out_pixels_train, y_train_var, train_loader = load_data(hdf5_dir, args, kwargs, 'train')
+train_hdf5_dir = args.data_dir
+# train_hdf5_dir = args.data_dir + "raw2/lsx4_lsy2_var0.5_smax8_D1r0.1/kle{}_lhs{}".format(args.kle_terms,args.n_train)
+x_train, y_train, n_out_pixels_train, y_train_var, train_loader = load_data(train_hdf5_dir, args, kwargs, 'train')
 # load test data
-hdf5_dir = args.data_dir + "raw2/lsx4_lsy2_var0.5_smax8_D1r0.1/kle{}_lhs{}".format(args.kle_terms,args.n_test)
-x_test, y_test, n_out_pixels_test, y_test_var, test_loader = load_data(hdf5_dir, args, kwargs, 'test')
+test_hdf5_dir = args.data_dir
+# test_hdf5_dir = args.data_dir + "raw2/lsx4_lsy2_var0.5_smax8_D1r0.1/kle{}_lhs{}".format(args.kle_terms,args.n_test)
+x_test, y_test, n_out_pixels_test, y_test_var, test_loader = load_data(test_hdf5_dir, args, kwargs, 'test')
 
 model = DenseED(x_train.shape[1], y_train.shape[1], blocks=args.blocks, growth_rate=args.growth_rate,
                 drop_rate=args.drop_rate, bn_size=args.bn_size,
@@ -138,10 +141,12 @@ def cal_R2():
 # # * * * Uncomment the following lines to test using the pretrained model * * * # #
 # print('start predicting...')
 # # load model
-# model.load_state_dict(th.load(model_dir + '/model_epoch{}.pth'.format(args.n_epochs)))
-# print('Loaded model')
-# test(200, 25)
-# sys.exit(0)
+print("device", device)
+model.load_state_dict(th.load(args.pretrained_dir + '/model_epoch{}.pth'.format(args.n_epochs), map_location=device))
+print('Loaded model')
+test(200, 25)
+sys.exit(0)
+
 
 # network training ==============
 print("Start training network")

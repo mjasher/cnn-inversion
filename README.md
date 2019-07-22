@@ -1,3 +1,19 @@
+## MJA Notes
+Build
+```
+docker build -t cnn-inversion .
+```
+Uncomment load `model.load_state_dict` in train_Net.py 
+
+Download sample data using `download_gdrive.py`.
+
+Run
+```
+docker run -it -v $PWD:/shared -w /shared cnn-inversion python3 train_Net.py --data-dir /shared/too_big/1CnITMyMOTmuSHQp8p5G9Vju3SFzi-9ae
+
+```
+
+
 ## Deep autoregressive neural networks for high-dimensional inverse problems
 
 [Deep autoregressive neural networks for high-dimensional inverse problems in groundwater contaminant source identification](https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1029/2018WR024638)

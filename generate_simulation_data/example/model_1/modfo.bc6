@@ -1,0 +1,4 @@
+         0  0.00E+00         0  0.00E+00         0         0  IBCFCB,HDRY,IWDFLG,WETFCT,IWETIT,IHDWET
+ 0 
+CONSTANT   1.000000E+00  TRPY
+open/close Cond.dat     1.0 '(FREE)' 0         tran layer 1

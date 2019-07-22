@@ -1,0 +1,46 @@
+MT3D001.UCN                        */unformatted file name
+1                                  */1: LF95-style unformatted; 2: true binary
+MT3D.CNF                           */configuration file name
+n                                  */shift offset?
+2                                  */total elapsed time
+  1  1  1                          */jjj1,iii1,kkk1
+ 81 41  1                          */jjj2,iii2,kkk2
+conc2.dat                          */output name
+2                                  */output format: 1=topo grd; 2=x,y,z,v; 3=Tecplot
+y                                     */another file?       ......   
+y                                  */Change total elapsed time or step number (Y/N)?
+4								   */total elapsed time
+n                                  */Change corner indices of the contour map (Y/N)?
+conc4.dat                          */output name
+2                                  */output format: 1=topo grd; 2=x,y,z,v; 3=Tecplot
+y                                     */another file?       ...... 
+y                                  */Change total elapsed time or step number (Y/N)?
+6								   */total elapsed time
+n                                  */Change corner indices of the contour map (Y/N)?
+conc6.dat                          */output name
+2                                  */output format: 1=topo grd; 2=x,y,z,v; 3=Tecplot
+y                                     */another file?       ...... 
+y                                  */Change total elapsed time or step number (Y/N)?
+8								   */total elapsed time
+n                                  */Change corner indices of the contour map (Y/N)?
+conc8.dat                          */output name
+2                                  */output format: 1=topo grd; 2=x,y,z,v; 3=Tecplot
+y                                     */another file?       ...... 
+y                                  */Change total elapsed time or step number (Y/N)?
+10								   */total elapsed time
+n                                  */Change corner indices of the contour map (Y/N)?
+conc10.dat                         */output name
+2                                  */output format: 1=topo grd; 2=x,y,z,v; 3=Tecplot
+y                                     */another file?       ...... 
+y                                  */Change total elapsed time or step number (Y/N)?
+12								   */total elapsed time
+n                                  */Change corner indices of the contour map (Y/N)?
+conc12.dat                         */output name
+2                                  */output format: 1=topo grd; 2=x,y,z,v; 3=Tecplot
+y                                     */another file?       ...... 
+y                                  */Change total elapsed time or step number (Y/N)?
+14								   */total elapsed time
+n                                  */Change corner indices of the contour map (Y/N)?
+conc14.dat                         */output name
+2                                  */output format: 1=topo grd; 2=x,y,z,v; 3=Tecplot
+n                                     */another file?       ...... 

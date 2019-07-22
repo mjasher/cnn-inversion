@@ -1,0 +1,22 @@
+#
+# MT3DMS v5 Name file for test case 
+#
+
+# Standard output file
+LIST  0 modfo.m3d
+
+# Transport package input files
+BTN   0 modfo.btn
+ADV   0 modfo.adv
+DSP   0 modfo.dsp
+SSM   0 modfo.ssm
+GCG   0 modfo.gcg
+
+
+# Flow-Transport Link input file
+FTL   0 modfo.ftl  free noprint
+
+# external input file
+data 30 SCon_01.dat
+data 50 Poro_01.dat
+data 70 Disp_001.dat
